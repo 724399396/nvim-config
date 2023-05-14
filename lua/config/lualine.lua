@@ -39,8 +39,6 @@ end
 
 local icons = require("config.icons")
 
-local winbar = require("config.winbar")
-
 function M.setup()
   require("lualine").setup({
     options = {
@@ -48,7 +46,6 @@ function M.setup()
       theme = "auto",
       disabled_filetypes = {
         statusline = {},
-        winbar = {},
       },
       always_divide_middle = true,
       globalstatus = true,
@@ -87,22 +84,6 @@ function M.setup()
       lualine_z = {},
     },
     tabline = {},
-    winbar = {
-      lualine_a = { "diagnostics" },
-      lualine_b = {},
-      lualine_c = {},
-      lualine_x = { winbar.get_winbar },
-      lualine_y = {},
-      lualine_z = {},
-    },
-    inactive_winbar = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = {},
-    },
     extensions = { "nvim-tree", "toggleterm", "quickfix" },
   })
 end
