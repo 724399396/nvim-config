@@ -31,6 +31,7 @@ function M.setup()
       "markdown",
       "markdown_inline",
       "http",
+      "regex",
     },
 
     -- Install languages synchronously (only applied to `ensure_installed`)

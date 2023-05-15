@@ -136,9 +136,6 @@ function M.setup()
         i = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }),
       },
     },
-    experimental = {
-      ghost_text = true,
-    },
     sources = {
       { name = "nvim_lsp" },
       { name = "luasnip" },
