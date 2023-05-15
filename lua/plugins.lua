@@ -255,13 +255,6 @@ return {
 
   -- LSP
   {
-    "SmiteshP/nvim-navic",
-    config = function()
-      require("nvim-navic").setup({})
-    end,
-  },
-
-  {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
     cmd = { "Mason" },
