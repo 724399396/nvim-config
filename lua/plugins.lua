@@ -485,24 +485,6 @@ return {
   },
 
   {
-    "jackMort/ChatGPT.nvim",
-    config = function()
-      require("chatgpt").setup({
-        keymaps = {
-          submit = "<C-e>",
-        },
-      })
-    end,
-    cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTEditWithInstructions", "ChatGPTCompleteCode" },
-    keys = { "<leader>i" },
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-  },
-
-  {
     "RaafatTurki/hex.nvim",
     config = function()
       require("hex").setup()
