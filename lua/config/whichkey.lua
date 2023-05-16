@@ -74,8 +74,7 @@ local function normal_keymap()
       name = "Intelligence",
       p = { "<cmd>ChatGPT<CR>", "ChatGPT" },
       a = { "<cmd>ChatGPTActAs<CR>", "ChatGPT Act As" },
-      c = { "<cmd>ChatGPTCompleteCode<CR>", "ChatGPT Complete Code" },
-      r = { "<cmd>ChatGPTEditWithInstructions<CR>", "ChatGPT Edit" },
+      e = { "<cmd>ChatGPTEditWithInstructions<CR>", "ChatGPT Edit" },
     },
     s = {
       name = "Others",

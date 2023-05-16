@@ -493,7 +493,7 @@ return {
         },
       })
     end,
-    cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTEditWithInstructions", "ChatGPTCompleteCode" },
+    cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTEditWithInstructions" },
     keys = { "<leader>i" },
     dependencies = {
       "MunifTanjim/nui.nvim",
