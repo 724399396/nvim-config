@@ -52,11 +52,6 @@ return {
 		local cmp = require("cmp")
 
 		require("luasnip.loaders.from_vscode").lazy_load()
-		require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets/typescript" } })
-		require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets/python" } })
-		require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets/rust" } })
-		require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets/vue" } })
-		require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets/flutter" } })
 
 		cmp.setup({
 			snippet = {
