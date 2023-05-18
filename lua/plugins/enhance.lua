@@ -113,4 +113,5 @@ return {
 			vim.g.translator_history_enable = true
 		end,
 	},
+	{ "jiaoshijie/undotree", dependencies = "nvim-lua/plenary.nvim", config = true },
 }

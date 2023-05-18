@@ -130,6 +130,10 @@ return {
 					"<cmd>lua require('notify').dismiss({ silent = true, pending = true })<cr>",
 					"Dismiss all Notifications",
 				},
+				u = {
+					"<cmd>lua require('undotree').toggle()<cr>",
+					"Undo Tree",
+				},
 			},
 			x = {
 				name = "Trouble",
