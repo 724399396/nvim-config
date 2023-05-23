@@ -11,14 +11,6 @@ return {
 			require("leap").add_default_mappings()
 		end,
 	},
-	{
-		"ggandor/flit.nvim",
-		event = "BufReadPre",
-		dependencies = { "ggandor/leap.nvim" },
-		config = function()
-			require("flit").setup()
-		end,
-	},
 
 	{ "kazhala/close-buffers.nvim", cmd = { "BDelete", "BWipeout" } },
 
