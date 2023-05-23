@@ -36,6 +36,7 @@ return {
       ["w"] = { "<cmd>update!<CR>", "Save" },
       ["T"] = { "<Cmd>Translate<CR>", "Translate" },
       ["e"] = { "<cmd>Neotree reveal toggle<cr>", "Explorer" },
+      ["E"] = { "<cmd>lua require('config.term').joshuto_toggle()<CR>", "Joshuto" },
       ["q"] = { "<cmd>q<cr>", "Quit" },
       a = {
         name = "Attempt",
