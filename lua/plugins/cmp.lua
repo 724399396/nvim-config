@@ -12,6 +12,13 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
+		{
+			"jcdickinson/codeium.nvim",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+			},
+			config = true,
+		},
 	},
 	config = function()
 		local types = require("cmp.types")
@@ -42,6 +49,7 @@ return {
 			Event = "",
 			Operator = "",
 			TypeParameter = "",
+			Codeium = "🤖",
 		}
 		local has_words_before = function()
 			local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -67,6 +75,7 @@ return {
 					-- Source
 					vim_item.menu = ({
 						nvim_lsp = "[LSP]",
+						codeium = "[Codeium]",
 						luasnip = "[Snip]",
 						buffer = "[Buffer]",
 						nvim_lua = "[Lua]",
@@ -150,6 +159,7 @@ return {
 			},
 			sources = {
 				{ name = "nvim_lsp" },
+				{ name = "codeium" },
 				{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "nvim_lua" },
