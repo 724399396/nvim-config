@@ -187,7 +187,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = "path" },
 			}, {
-				{ name = "cmdline" },
+				{ name = "cmdline", keyword_pattern = [[\!\@<!\w*]] },
 			}),
 		})
 	end,
