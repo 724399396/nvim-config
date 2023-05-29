@@ -132,7 +132,9 @@ return {
 						return
 					end
 				end
-				require("lspconfig")[server].setup(server_opts)
+				if opts.servers[server] then
+					require("lspconfig")[server].setup(server_opts)
+				end
 			end
 
 			-- get all the servers that are available thourgh mason-lspconfig
