@@ -12,7 +12,7 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        omnisharp_mono = {},
+        omnisharp = {},
       },
     },
   },
