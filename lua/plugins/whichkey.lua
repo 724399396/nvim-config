@@ -5,12 +5,7 @@ return {
   config = function()
     local whichkey = require("which-key")
 
-    whichkey.setup({
-      window = {
-        border = "none", -- none, single, double, shadow
-        position = "bottom", -- bottom, top
-      },
-    })
+    whichkey.setup()
 
     require("legendary").setup({
       include_builtin = true,
@@ -289,31 +284,17 @@ return {
       keymap_c.a = { "<cmd>OverseerQuickAction<cr>", "Overseer Quick Action" }
       keymap_c.A = { "<cmd>OverseerTaskAction<cr>", "Overseer Task Action" }
 
-      if next(keymap_c) ~= nil then
-        local k = { c = keymap_c }
-        local o = {
-          mode = "n",
-          silent = true,
-          noremap = true,
-          buffer = bufnr,
-          prefix = "<leader>",
-          nowait = true,
-        }
-        whichkey.register(k, o)
-      end
+      whichkey.register(keymap_c, {
+        mode = "n",
+        buffer = bufnr,
+        prefix = "<leader>c",
+      })
 
-      if next(keymap_c_v) ~= nil then
-        local k = { c = keymap_c_v }
-        local o = {
-          mode = "v",
-          silent = true,
-          noremap = true,
-          buffer = bufnr,
-          prefix = "<leader>",
-          nowait = true,
-        }
-        whichkey.register(k, o)
-      end
+      whichkey.register(keymap_c_v, {
+        mode = "v",
+        buffer = bufnr,
+        prefix = "<leader>c",
+      })
     end
   end,
 }
