@@ -17,14 +17,6 @@ local function get_typescript_server_path(root_dir)
 end
 
 return {
-	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = function(_, opts)
-			if type(opts.ensure_installed) == "table" then
-				vim.list_extend(opts.ensure_installed, { "vue" })
-			end
-		end,
-	},
 
 	{
 		"neovim/nvim-lspconfig",
