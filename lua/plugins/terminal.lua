@@ -1,4 +1,1 @@
-return {
-	"akinsho/toggleterm.nvim",
-	config = true,
-}
+return { "akinsho/toggleterm.nvim", version = "*", config = true }

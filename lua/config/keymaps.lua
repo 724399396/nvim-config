@@ -61,5 +61,6 @@ keymap("n", "gx", "<Plug>(openbrowser-smart-search)", opts)
 keymap("x", "gx", "<Plug>(openbrowser-smart-search)", opts)
 
 -- Terminal
-keymap("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
-keymap("n", "<C-\\>", "<cmd>ToggleTerm direction=float<CR>", opts)
+keymap("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+keymap("n", "<C-\\>", '<cmd>exe v:count1 .. "ToggleTerm direction=float"<CR>', opts)
+keymap("t", "<C-\\>", '<cmd>exe v:count1 .. "ToggleTerm direction=float"<CR>', opts)
