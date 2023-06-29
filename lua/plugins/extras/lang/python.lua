@@ -9,14 +9,11 @@ return {
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
     opts = function(_, opts)
-      local nls = require("null-ls")
-      table.insert(opts.sources, nls.builtins.formatting.black.with({ extra_args = { "--fast" } }))
-      table.insert(
-        opts.sources,
-        nls.builtins.diagnostics.flake8.with({ extra_args = { "--max-line-length=100" } })
-      )
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "flake8", "autopep8" })
+      end
     end,
   },
 

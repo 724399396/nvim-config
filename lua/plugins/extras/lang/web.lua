@@ -9,11 +9,11 @@ return {
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
     opts = function(_, opts)
-      local nls = require("null-ls")
-      table.insert(opts.sources, nls.builtins.formatting.prettierd)
-      table.insert(opts.sources, nls.builtins.formatting.xmllint)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "prettierd", "xmlformatter" })
+      end
     end,
   },
 
