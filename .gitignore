@@ -50,3 +50,4 @@ lua/packer_compiled.lua
 
 sessions/
 lazy-lock.json
+pack/github/start/copilot.vim/
