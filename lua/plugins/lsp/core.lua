@@ -6,10 +6,6 @@ return {
       "folke/neodev.nvim",
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-      {
-        "j-hui/fidget.nvim",
-        config = true,
-      },
       { "jose-elias-alvarez/typescript.nvim" },
     },
     ---@class PluginLspOpts
