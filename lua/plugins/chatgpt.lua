@@ -1,6 +1,8 @@
 return {
   "jackMort/ChatGPT.nvim",
-  config = true,
+  config = function()
+    require("chatgpt").setup()
+  end,
   cmd = { "ChatGPT", "ChatGPTActAs", "ChatGPTEditWithInstructions", "ChatGPTRun" },
   keys = { "<leader>i" },
   dependencies = {

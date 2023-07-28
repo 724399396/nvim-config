@@ -220,11 +220,15 @@ return {
 
   -- lspsaga.nvim
   {
-    "glepnir/lspsaga.nvim",
-    cmd = { "Lspsaga" },
-    config = true,
+    "nvimdev/lspsaga.nvim",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter", -- optional
+      "nvim-tree/nvim-web-devicons",  -- optional
+    },
   },
-
   {
     "lvimuser/lsp-inlayhints.nvim",
     config = function()

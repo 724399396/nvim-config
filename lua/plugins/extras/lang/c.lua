@@ -1,32 +1,26 @@
 return {
-	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = function(_, opts)
-			if type(opts.ensure_installed) == "table" then
-				vim.list_extend(opts.ensure_installed, { "c", "cpp" })
-			end
-		end,
-	},
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "c", "cpp" })
+      end
+    end,
+  },
 
-	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			servers = {
-				clangd = {},
-			},
-		},
-	},
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        clangd = {},
+      },
+    },
+  },
 
-	{
-		"jay-babu/mason-nvim-dap.nvim",
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, { "cppdbg" })
-		end,
-	},
-
-	{
-		"mfussenegger/nvim-jdtls",
-		dependencies = "nvim-lspconfig",
-		ft = { "java" },
-	},
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, { "cppdbg" })
+    end,
+  },
 }
