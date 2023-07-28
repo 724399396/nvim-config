@@ -21,9 +21,12 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        pyright = {
-          analysis = {
-            typeCheckingMode = "off",
+        pylsp = {
+          plugins = {
+            pycodestyle = {
+              ignore = { "W391" },
+              maxLineLength = 100,
+            },
           },
         },
       },
