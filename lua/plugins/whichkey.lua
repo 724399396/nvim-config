@@ -140,7 +140,6 @@ return {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
         r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-        f = { "<cmd>Lspsaga lsp_finder<CR>", "Finder" },
         i = { "<cmd>LspInfo<CR>", "Lsp Info" },
         s = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
         L = { "<cmd>lua vim.lsp.codelens.refresh()<CR>", "Refresh CodeLens" },
