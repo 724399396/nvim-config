@@ -1,4 +1,5 @@
 return {
+  { "folke/neodev.nvim", opts = {} },
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre" },
