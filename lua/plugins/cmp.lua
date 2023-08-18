@@ -22,7 +22,12 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
-      "zbirenbaum/copilot.lua",
+      {
+        "zbirenbaum/copilot.lua",
+        opts = {
+          copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v18.17.1/bin/node", -- Node.js version must be > 16.x
+        },
+      },
       { "zbirenbaum/copilot-cmp", opts = true },
     },
     config = function()
