@@ -12,8 +12,10 @@ return {
       "ray-x/cmp-treesitter",
       "hrsh7th/cmp-cmdline",
       "saadparwaiz1/cmp_luasnip",
-      "L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
+      {
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+      },
       {
         "jcdickinson/codeium.nvim",
         dependencies = {
@@ -39,6 +41,7 @@ return {
       local cmp = require("cmp")
 
       require("luasnip.loaders.from_vscode").lazy_load()
+      luasnip.filetype_extend("dart", { "flutter" })
       local lspkind = require("lspkind")
 
       cmp.setup({
