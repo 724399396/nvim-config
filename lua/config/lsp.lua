@@ -4,7 +4,7 @@ local lsp_format = vim.api.nvim_create_augroup("LspFormatting", { clear = true }
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format({
     filter = function(client)
-      return client.name ~= "sumneko_lua" and client.name ~= "jdtls"
+      return client.name ~= "sumneko_lua" and client.name ~= "jdtls" and client.name ~= "volar"
     end,
     bufnr = bufnr,
   })

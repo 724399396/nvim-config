@@ -9,6 +9,15 @@ return {
   },
 
   {
+    "jay-babu/mason-null-ls.nvim",
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "prettierd", "eslint_d" })
+      end
+    end,
+  },
+
+  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
