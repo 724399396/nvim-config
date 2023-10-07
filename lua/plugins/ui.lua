@@ -100,7 +100,7 @@ return {
     end,
   },
 
-  { "google/vim-searchindex", event = "BufReadPre" },
+  { "google/vim-searchindex",              event = "BufReadPre" },
 
   {
     "kevinhwang91/nvim-bqf",
@@ -110,16 +110,7 @@ return {
     end,
   },
 
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {
-      char = "│",
-      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
-      show_trailing_blankline_indent = false,
-      show_current_context = false,
-    },
-  },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",        opts = {} },
 
   {
     "nvim-lualine/lualine.nvim",
