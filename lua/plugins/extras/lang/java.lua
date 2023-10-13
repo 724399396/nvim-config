@@ -82,7 +82,7 @@ return {
             "-Declipse.product=org.eclipse.jdt.ls.core.product",
             "-Dlog.protocol=true",
             "-Dlog.level=ALL",
-            "-Xmx1g",
+            "-Xmx4g",
             "-javaagent:" .. JDTLS_LOCATION .. "/lombok.jar",
             "--add-modules=ALL-SYSTEM",
             "--add-opens",
@@ -113,7 +113,6 @@ return {
                 downloadSources = true,
               },
               configuration = {
-                updateBuildConfiguration = "interactive",
                 runtimes = {
                   {
                     name = "JavaSE-1.8",
@@ -148,19 +147,21 @@ return {
                   "java.util.Objects.requireNonNullElse",
                   "org.mockito.Mockito.*",
                 },
+                filteredTypes = {
+                  "com.sun.*",
+                  "io.micrometer.shaded.*",
+                  "java.awt.*",
+                  "jdk.*",
+                  "sun.*",
+                },
               },
-              extendedClientCapabilities = extendedClientCapabilities,
               sources = {
                 organizeImports = {
                   starThreshold = 9999,
                   staticStarThreshold = 9999,
                 },
               },
-              codeGeneration = {
-                toString = {
-                  template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
-                },
-              },
+              codeGeneration = {},
             },
           },
           flags = {
@@ -175,6 +176,10 @@ return {
           -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
           init_options = {
             bundles = bundles,
+            extendedClientCapabilities = extendedClientCapabilities,
+          },
+          language = {
+            status = function() end,
           },
         }
         -- This starts a new client & server,

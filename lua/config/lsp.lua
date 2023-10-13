@@ -3,9 +3,6 @@ local lsp_format = vim.api.nvim_create_augroup("LspFormatting", { clear = true }
 
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format({
-    filter = function(client)
-      return client.name ~= "sumneko_lua" and client.name ~= "jdtls" and client.name ~= "volar"
-    end,
     bufnr = bufnr,
   })
 end
@@ -43,17 +40,18 @@ function M.on_attach(client, bufnr)
   if client.name == "jdtls" then
     require("jdtls").setup_dap({ hotcodereplace = "auto" })
     require("jdtls.dap").setup_dap_main_class_configs()
-    vim.lsp.codelens.refresh()
   end
 
   if client.supports_method("textDocument/formatting") then
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group = lsp_format,
-      buffer = bufnr,
-      callback = function()
-        lsp_formatting(bufnr)
-      end,
-    })
+    if client.name ~= "sumneko_lua" and client.name ~= "jdtls" and client.name ~= "volar" then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = lsp_format,
+        buffer = bufnr,
+        callback = function()
+          lsp_formatting(bufnr)
+        end,
+      })
+    end
   end
 end
 
