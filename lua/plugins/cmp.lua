@@ -16,13 +16,6 @@ return {
         "L3MON4D3/LuaSnip",
         dependencies = { "rafamadriz/friendly-snippets" },
       },
-      {
-        "jcdickinson/codeium.nvim",
-        dependencies = {
-          "nvim-lua/plenary.nvim",
-        },
-        config = true,
-      },
     },
     config = function()
       local types = require("cmp.types")
@@ -54,7 +47,6 @@ return {
           format = lspkind.cmp_format({
             mode = "symbol", -- show only symbol annotations
             maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-            symbol_map = { Codeium = "" },
           }),
         },
         mapping = {
@@ -137,7 +129,6 @@ return {
         },
         sources = {
           { name = "nvim_lsp" },
-          { name = "codeium" },
           { name = "luasnip" },
           { name = "buffer" },
           { name = "nvim_lua" },
