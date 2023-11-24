@@ -48,13 +48,7 @@ return {
     config = function()
       require("mini.ai").setup()
       require("mini.bracketed").setup()
-      require("mini.comment").setup({
-        hooks = {
-          pre = function()
-            require("ts_context_commentstring.internal").update_commentstring()
-          end,
-        },
-      })
+      require("mini.comment").setup()
       require("mini.cursorword").setup()
       require("mini.move").setup()
       require("mini.pairs").setup()
