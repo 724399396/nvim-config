@@ -43,7 +43,12 @@ function M.on_attach(client, bufnr)
   end
 
   if client.supports_method("textDocument/formatting") then
-    if client.name ~= "sumneko_lua" and client.name ~= "jdtls" and client.name ~= "volar" then
+    if
+        client.name ~= "sumneko_lua"
+        and client.name ~= "jdtls"
+        and client.name ~= "volar"
+        and client.name ~= "jsonls"
+    then
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = lsp_format,
         buffer = bufnr,
