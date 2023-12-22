@@ -1,42 +1,42 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "python" })
-      end
-    end,
-  },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = function(_, opts)
+			if type(opts.ensure_installed) == "table" then
+				vim.list_extend(opts.ensure_installed, { "python" })
+			end
+		end,
+	},
 
-  {
-    "jay-babu/mason-null-ls.nvim",
-    opts = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        vim.list_extend(opts.ensure_installed, { "flake8", "autopep8" })
-      end
-    end,
-  },
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				pylsp = {},
+			},
+		},
+	},
 
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        pylsp = {
-          plugins = {
-            pycodestyle = {
-              ignore = { "W391" },
-              maxLineLength = 100,
-            },
-          },
-        },
-      },
-    },
-  },
+	{
+		"williamboman/mason.nvim",
+		opts = function(_, opts)
+			vim.list_extend(opts.ensure_installed, { "isort", "black" })
+		end,
+	},
 
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, { "python" })
-    end,
-  },
+	{
+		"stevearc/conform.nvim",
+		opts = function(_, opts)
+			if type(opts.formatters_by_ft) == "table" then
+				opts.formatters_by_ft["python"] = { "isort", "black" }
+			end
+		end,
+	},
+
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+		opts = function(_, opts)
+			vim.list_extend(opts.ensure_installed, { "python" })
+		end,
+	},
 }
