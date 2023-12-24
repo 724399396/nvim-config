@@ -1,9 +1,9 @@
 return {
-  "mfussenegger/nvim-dap",
-  dependencies = {
-    -- fancy UI for the debugger
-    {
-      "rcarriga/nvim-dap-ui",
+	"mfussenegger/nvim-dap",
+	dependencies = {
+		-- fancy UI for the debugger
+		{
+			"rcarriga/nvim-dap-ui",
       -- stylua: ignore
       keys = {
         {
@@ -22,56 +22,56 @@ return {
           mode = { "n", "v" },
         },
       },
-      opts = {},
-      config = function(_, opts)
-        local dap = require("dap")
-        local dapui = require("dapui")
-        dapui.setup(opts)
-        dap.listeners.after.event_initialized["dapui_config"] = function()
-          dapui.open({})
-        end
-      end,
-    },
+			opts = {},
+			config = function(_, opts)
+				local dap = require("dap")
+				local dapui = require("dapui")
+				dapui.setup(opts)
+				dap.listeners.after.event_initialized["dapui_config"] = function()
+					dapui.open({})
+				end
+			end,
+		},
 
-    -- virtual text for the debugger
-    {
-      "theHamsta/nvim-dap-virtual-text",
-      opts = {},
-    },
+		-- virtual text for the debugger
+		{
+			"theHamsta/nvim-dap-virtual-text",
+			opts = {},
+		},
 
-    -- which key integration
-    {
-      "folke/which-key.nvim",
-      opts = {
-        defaults = {
-          ["<leader>d"] = { name = "+debug" },
-          ["<leader>da"] = { name = "+adapters" },
-        },
-      },
-    },
+		-- which key integration
+		{
+			"folke/which-key.nvim",
+			opts = {
+				defaults = {
+					["<leader>d"] = { name = "+debug" },
+					["<leader>da"] = { name = "+adapters" },
+				},
+			},
+		},
 
-    -- mason.nvim integration
-    {
-      "jay-babu/mason-nvim-dap.nvim",
-      dependencies = "mason.nvim",
-      keys = "<leader>d",
-      opts = {
-        -- Makes a best effort to setup the various debuggers with
-        -- reasonable debug configurations
-        automatic_setup = true,
+		-- mason.nvim integration
+		{
+			"jay-babu/mason-nvim-dap.nvim",
+			dependencies = "mason.nvim",
+			keys = "<leader>d",
+			opts = {
+				-- Makes a best effort to setup the various debuggers with
+				-- reasonable debug configurations
+				automatic_setup = true,
 
-        -- You can provide additional configuration to the handlers,
-        -- see mason-nvim-dap README for more information
-        handlers = {},
+				-- You can provide additional configuration to the handlers,
+				-- see mason-nvim-dap README for more information
+				handlers = {},
 
-        -- You'll need to check that you have the required things installed
-        -- online, please don't ask me how to install them :)
-        ensure_installed = {
-          -- Update this to ensure that you have the debuggers for the langs you want
-        },
-      },
-    },
-  },
+				-- You'll need to check that you have the required things installed
+				-- online, please don't ask me how to install them :)
+				ensure_installed = {
+					-- Update this to ensure that you have the debuggers for the langs you want
+				},
+			},
+		},
+	},
 
   -- stylua: ignore
   keys = {
@@ -189,31 +189,31 @@ return {
     },
   },
 
-  config = function()
-    vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+	config = function()
+		vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
-    local dap_breakpoint = {
-      error = {
-        text = "🟥",
-        texthl = "LspDiagnosticsSignError",
-        linehl = "",
-        numhl = "",
-      },
-      rejected = {
-        texthl = "LspDiagnosticsSignHint",
-        linehl = "",
-        numhl = "",
-      },
-      stopped = {
-        text = "⭐️",
-        texthl = "LspDiagnosticsSignInformation",
-        linehl = "DiagnosticUnderlineInfo",
-        numhl = "LspDiagnosticsSignInformation",
-      },
-    }
+		local dap_breakpoint = {
+			error = {
+				text = "🟥",
+				texthl = "LspDiagnosticsSignError",
+				linehl = "",
+				numhl = "",
+			},
+			rejected = {
+				texthl = "LspDiagnosticsSignHint",
+				linehl = "",
+				numhl = "",
+			},
+			stopped = {
+				text = "⭐️",
+				texthl = "LspDiagnosticsSignInformation",
+				linehl = "DiagnosticUnderlineInfo",
+				numhl = "LspDiagnosticsSignInformation",
+			},
+		}
 
-    vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
-    vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
-    vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
-  end,
+		vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
+		vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
+		vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
+	end,
 }

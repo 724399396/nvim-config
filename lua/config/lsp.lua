@@ -15,18 +15,18 @@ end
 function M.on_attach(client, bufnr)
 	-- Enable completion triggered by <C-X><C-O>
 	-- See `:help omnifunc` and `:help ins-completion` for more information.
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
 
 	-- Use LSP as the handler for formatexpr.
 	-- See `:help formatexpr` for more information.
-	vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr()")
+	vim.api.nvim_set_option_value("formatexpr", "v:lua.vim.lsp.formatexpr()", { buf = bufnr })
 
 	-- Configure key mappings
 	keymappings()
 
 	-- tagfunc
 	if client.server_capabilities.definitionProvider then
-		vim.api.nvim_buf_set_option(bufnr, "tagfunc", "v:lua.vim.lsp.tagfunc")
+		vim.api.nvim_set_option_value("tagfunc", "v:lua.vim.lsp.tagfunc", { buf = bufnr })
 	end
 
 	-- Configure for jdtls
