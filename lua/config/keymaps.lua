@@ -29,6 +29,9 @@ keymap("n", "<Right>", ":vertical resize -1<CR>", opts)
 keymap("n", "<Up>", ":resize -1<CR>", opts)
 keymap("n", "<Down>", ":resize +1<CR>", opts)
 
+keymap("n", "[t", ":tabprevious<CR>", opts)
+keymap("n", "]a", ":tabnext<CR>", opts)
+
 -- Navigate argument list
 keymap("n", "[a", ":previous<CR>", opts)
 keymap("n", "]a", ":next<CR>", opts)

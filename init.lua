@@ -1,7 +1,6 @@
 require("config.options")
 require("config.keymaps")
 require("config.autocommands")
-require("config.fix")
 
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.maplocalleader = " "
