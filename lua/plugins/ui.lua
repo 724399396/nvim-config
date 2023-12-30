@@ -15,21 +15,6 @@ return {
 		end,
 	},
 
-	-- Better `vim.notify()`
-	{
-		"rcarriga/nvim-notify",
-		opts = {
-			timeout = 3000,
-			background_colour = "#000000",
-			max_height = function()
-				return math.floor(vim.o.lines * 0.75)
-			end,
-			max_width = function()
-				return math.floor(vim.o.columns * 0.75)
-			end,
-		},
-	},
-
 	-- bufferline
 	{
 		"akinsho/bufferline.nvim",
@@ -86,16 +71,21 @@ return {
 					inc_rename = false, -- enables an input dialog for inc-rename.nvim
 					lsp_doc_border = false, -- add a border to hover docs and signature help
 				},
-				filter = {
-					event = "msg_show",
-					any = {
-						{ find = "%d+L, %d+B" },
-						{ find = "; after #%d+" },
-						{ find = "; before #%d+" },
-						{ find = "%d fewer lines" },
-						{ find = "%d more lines" },
+				routes = {
+					{
+						filter = {
+							event = "msg_show",
+							any = {
+								{ find = "%d+L, %d+B" },
+								{ find = "; after #%d+" },
+								{ find = "; before #%d+" },
+								{ find = "%d fewer lines" },
+								{ find = "%d more lines" },
+							},
+						},
 					},
 				},
+				opts = { skip = true },
 			})
 		end,
 	},
